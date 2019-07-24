@@ -29,4 +29,26 @@ public class TST{
 
         return node;
     }
+    
+        private Node get(Node node, String key, int index){
+
+        if(node == null )
+            return null;
+        
+        char c = key.charAt(index);
+
+        if(c < node.getCharacter())
+            return get(node.getLeftNode(), key, index);
+        
+        else if(c > node.getCharacter())
+            return get(node.getRightNode(), key, index);
+        
+        else if(index < key.length() - 1)
+            return get(node.getMiddleNode(), key, index + 1);
+        
+        else
+            return node;
+        
+        
+    }
 }
